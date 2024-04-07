@@ -1,14 +1,14 @@
 import "./Navbar.css"
 
-export default function Navbar() {
+export default function Navbar({ setSelectedSection }) {
     return (
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/">About</a></li>
-                <li><a href="/">Login</a></li>
-                <li><a href="/">Signup</a></li>
+                <li><button onClick={() => setSelectedSection('home')}>Home</button></li>
+                <li><button onClick={() => setSelectedSection('about')}>About</button></li>
+                <li><button onClick={() => setSelectedSection('login')}>Login</button></li>
+                <li><button onClick={() => setSelectedSection('signup')}>Signup</button></li>
             </ul>
         </nav>
-    )
-};
+    );
+}

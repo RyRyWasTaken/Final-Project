@@ -1,4 +1,29 @@
-li {
-    display: grid;
-    justify-content: space-around;
-}
+nav {
+    background-color: #333;
+    padding: 10px 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  button {
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
