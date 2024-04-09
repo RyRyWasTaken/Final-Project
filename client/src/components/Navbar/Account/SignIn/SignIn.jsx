@@ -1,5 +1,5 @@
 import React from "react";
-import "./Account.css";
+import "./SignIn.css";
 
 export default function Account() {
   const handleForgotPassword = (event) => {
@@ -13,7 +13,7 @@ export default function Account() {
         <h2>Sign In</h2>
 
         <hr />
-        <form method="GET">
+        <form method="post">
                 <div className="form-group">
                     <label htmlFor="username">Username</label>
                     <input type="text" id="username" name="username" />
