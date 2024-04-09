@@ -23,15 +23,11 @@ export default function Account() {
                     <input type="password" id="password" name="password" />
                 </div>
 
-                <div>
+                <div className="form-div">
                     <button className="forgot-pass" onClick={handleForgotPassword}>Forgot Password</button>
-                </div>
-                    <button className="submit-btn " onClick={(event) => event.preventDefault()}>Sign In</button>
-                
-                
-                <div>
+                    <button className="signin-btn " onClick={(event) => event.preventDefault()}>Sign In</button>
                     <p>Don't have an account?</p>
-                    <button>Sign Up</button>
+                    <button className="signup-btn">Sign Up</button>
                 </div>
                   
                   

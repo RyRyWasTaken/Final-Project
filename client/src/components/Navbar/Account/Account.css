@@ -3,8 +3,8 @@
 }
 
 #account .pageBody hr {
-    margin-left: 100px; 
-    margin-right: 100px; 
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .form-group {
@@ -20,17 +20,21 @@
     font-size: 0.6rem;
 }
 
-.submit-btn {
+.signin-btn,
+.signup-btn {
     display: inline-block;
-    background-color: violet;
     border-radius: 30px;
     color: black;
     padding: 0.5rem 4rem;
     transition: background-color 0.3s ease-in-out;
 }
 
-.submit-btn:hover {
-    background-color: rgba(238, 130, 238, 0.671);
+.signin-btn {
+    background-color: violet;
+}
+
+.signin-btn:hover {
+    background-color: rgba(238, 130, 238, 0.67);
     text-decoration: none;
 }
 
@@ -40,9 +44,32 @@
     text-decoration: underline;
     font-size: 0.6rem;
     margin-bottom: 0.5rem;
+    order: -1;
 }
 
 .forgot-pass:hover {
     background-color: white;
     text-decoration: none;
+}
+
+.signup-btn {
+    background-color: turquoise;
+}
+
+.signup-btn:hover {
+    background-color: rgba(64, 224, 208, 0.67);
+    text-decoration: none;
+}
+
+.signin-btn,
+.signup-btn {
+    margin-top: auto;
+}
+
+.form-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
 }
