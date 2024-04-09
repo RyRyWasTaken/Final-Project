@@ -1,0 +1,48 @@
+.pageBody {
+    text-align: center;
+}
+
+#account .pageBody hr {
+    margin-left: 100px; 
+    margin-right: 100px; 
+}
+
+.form-group {
+    margin: 0.5rem;
+}
+
+.form-group label {
+    display: block;
+}
+
+.submit a {
+    position: absolute;
+    font-size: 0.6rem;
+}
+
+.submit-btn {
+    display: inline-block;
+    background-color: violet;
+    border-radius: 30px;
+    color: black;
+    padding: 0.5rem 4rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    background-color: rgba(238, 130, 238, 0.671);
+    text-decoration: none;
+}
+
+.forgot-pass {
+    display: inline-block;
+    color: black;
+    text-decoration: underline;
+    font-size: 0.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.forgot-pass:hover {
+    background-color: white;
+    text-decoration: none;
+}

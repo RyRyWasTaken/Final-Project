@@ -1,13 +1,41 @@
-import "./Navbar.css"
+import React, { useState } from 'react';
+import './Navbar.css';
 
 export default function Navbar({ setSelectedSection }) {
+    const [activeButton, setActiveButton] = useState('home');
+
+    const handleButtonClick = (section) => {
+        setSelectedSection(section);
+        setActiveButton(section);
+    };
+
     return (
         <nav>
             <ul>
-                <li><button onClick={() => setSelectedSection('home')}>Home</button></li>
-                <li><button onClick={() => setSelectedSection('about')}>About</button></li>
-                <li><button onClick={() => setSelectedSection('login')}>Login</button></li>
-                <li><button onClick={() => setSelectedSection('signup')}>Signup</button></li>
+                <li>
+                    <button
+                        className={activeButton === 'account' ? 'active' : ''}
+                        onClick={() => handleButtonClick('account')}
+                    >
+                        My Account
+                    </button>
+                </li>
+                <li>
+                    <button
+                        className={activeButton === 'home' ? 'active' : ''}
+                        onClick={() => handleButtonClick('home')}
+                    >
+                        Home
+                    </button>
+                </li>
+                <li>
+                    <button
+                        className={activeButton === 'cart' ? 'active' : ''}
+                        onClick={() => handleButtonClick('cart')}
+                    >
+                        My Cart
+                    </button>
+                </li>
             </ul>
         </nav>
     );

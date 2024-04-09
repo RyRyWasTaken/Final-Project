@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import About from "./components/Navbar/Sections/About/About.jsx";
-import Home from "./components/Navbar/Sections/Home/Home.jsx";
+import Home from "./components/Navbar/Home/Home.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx"
+import Cart from "./components/Navbar/Cart/Cart.jsx";
+import Account from "./components/Navbar/Account/Account.jsx";
 
 export default function App() {
     const [selectedSection, setSelectedSection] = useState('home');
@@ -11,7 +12,8 @@ export default function App() {
             <Navbar setSelectedSection={setSelectedSection} />
             <div>
                 {selectedSection === 'home' && <Home />}
-                {selectedSection === 'about' && <About />}
+                {selectedSection === 'account' && <Account />}
+                {selectedSection === 'cart' && <Cart />}
             </div>
         </div>
     );
