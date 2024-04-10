@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./SignIn.css";
 
 export default function Account() {
-  const [username, setUsername] = useState(null); // Initialize with null
-  const [password, setPassword] = useState(null); // Initialize with null
+  const [username, setUsername] = useState(null); 
+  const [password, setPassword] = useState(null); 
   const [error, setError] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // New state to track login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
   const handleSignIn = async (event) => {
     event.preventDefault();

@@ -1,43 +1,41 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar({ setSelectedSection }) {
-    const [activeButton, setActiveButton] = useState('home');
 
-    const handleButtonClick = (section) => {
-        setSelectedSection(section);
-        setActiveButton(section);
-    };
-
-    return <>
+    return (
         <nav>
             <ul>
                 <li>
-                    <button
-                        className={activeButton === 'account' ? 'active' : ''}
-                        onClick={() => handleButtonClick('account')}
+                    <NavLink
+                        to="/account"
+                        activeClassName="active"
+                        className="button"
                     >
                         My Account
-                    </button>
+                    </NavLink>
                 </li>
                 <li>
-                    <button
-                        className={activeButton === 'home' ? 'active' : ''}
-                        onClick={() => handleButtonClick('home')}
+                    <NavLink
+                        to="/"
+                        exact
+                        activeClassName="active"
+                        className="button"
                     >
                         Home
-                    </button>
+                    </NavLink>
                 </li>
                 <li>
-                    <button
-                        className={activeButton === 'cart' ? 'active' : ''}
-                        onClick={() => handleButtonClick('cart')}
+                    <NavLink
+                        to="/cart"
+                        activeClassName="active"
+                        className="button"
                     >
                         My Cart
-                    </button>
+                    </NavLink>
                 </li>
             </ul>
         </nav>
-    </>;
+    );
 }

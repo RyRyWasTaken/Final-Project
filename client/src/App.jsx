@@ -3,18 +3,19 @@ import Home from "./components/Navbar/Home/Home.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx"
 import Cart from "./components/Navbar/Cart/Cart.jsx";
 import Account from "./components/Navbar/Account/SignIn/SignIn.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App() {
-    const [selectedSection, setSelectedSection] = useState('home');
-
     return (
-        <div>
-            <Navbar setSelectedSection={setSelectedSection} />
-            <div>
-                {selectedSection === 'home' && <Home />}
-                {selectedSection === 'account' && <Account />}
-                {selectedSection === 'cart' && <Cart />}
-            </div>
-        </div>
+    <>
+    <BrowserRouter>
+        <Navbar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/account" element={<Account />} />
+                <Route path="/cart" element={<Cart />} />
+            </Routes>
+        </BrowserRouter>
+    </>
     );
 }
