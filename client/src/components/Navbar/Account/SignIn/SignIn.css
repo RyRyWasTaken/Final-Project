@@ -21,7 +21,8 @@
 }
 
 .signin-btn,
-.signup-btn {
+.signup-btn,
+.signout-btn {
     display: inline-block;
     border-radius: 30px;
     color: black;
@@ -29,7 +30,7 @@
     transition: background-color 0.3s ease-in-out;
 }
 
-.signin-btn {
+.signin-btn, .signout-btn {
     background-color: violet;
 }
 

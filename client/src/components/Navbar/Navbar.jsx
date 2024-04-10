@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar({ setSelectedSection }) {
@@ -9,7 +10,7 @@ export default function Navbar({ setSelectedSection }) {
         setActiveButton(section);
     };
 
-    return (
+    return <>
         <nav>
             <ul>
                 <li>
@@ -38,5 +39,5 @@ export default function Navbar({ setSelectedSection }) {
                 </li>
             </ul>
         </nav>
-    );
+    </>;
 }

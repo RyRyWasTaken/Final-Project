@@ -2,12 +2,12 @@ from config import db, app
 from models import User
 
 def create_tables():
-    with app.app_context():  # Use app context to work with the database
+    with app.app_context(): 
         db.create_all()
         print("Tables created successfully")
 
 def populate_database():
-    with app.app_context():  # Use app context to work with the database
+    with app.app_context(): 
         create_tables()
         create_example_users()
         db.session.commit()
@@ -21,7 +21,7 @@ def create_example_users():
         {"username": "bob_johnson_new", "password": "johnsonpass", "role": "user"}
     ]
 
-    with app.app_context():  # Use app context to work with the database
+    with app.app_context(): 
         for user_data in example_users:
             user = User(
                 username=user_data["username"],
