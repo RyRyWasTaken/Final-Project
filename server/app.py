@@ -5,7 +5,7 @@ from models import User
 
 load_dotenv()
 
-@app.route("/")
+@app.route("/profiles")
 def home():
     users = User.query.all()
     users_json = [user.to_json() for user in users]
