@@ -65,6 +65,7 @@
 .signin-btn,
 .signup-btn {
     margin-top: auto;
+    text-decoration: none;
 }
 
 .form-div {

@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SignIn.css";
+import { NavLink } from "react-router-dom";
 
-export default function Account() {
-  const [username, setUsername] = useState(null); 
-  const [password, setPassword] = useState(null); 
+export default function SignIn() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const handleSignIn = async (event) => {
     event.preventDefault();
@@ -21,6 +31,8 @@ export default function Account() {
 
       if (response.ok) {
         const data = await response.json();
+        localStorage.setItem("token", data.token); 
+        setToken(data.token);
         setUsername(data.username);
         setIsLoggedIn(true);
       } else {
@@ -31,6 +43,12 @@ export default function Account() {
       console.error("Error:", error);
       setError("An unexpected error occurred");
     }
+  };
+
+  const handleSignOut = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    setToken(null);
   };
 
   const handleForgotPassword = (event) => {
@@ -51,7 +69,7 @@ export default function Account() {
         {isLoggedIn ? (
           <div>
             <h2>Welcome!</h2>
-            <button className="signout-btn" onClick={() => setIsLoggedIn(false)}>
+            <button className="signout-btn" onClick={handleSignOut}>
               Sign Out
             </button>
           </div>
@@ -67,7 +85,7 @@ export default function Account() {
                   type="text"
                   id="username"
                   name="username"
-                  value={username || ""}
+                  value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   onKeyDown={handleKeyDown}
                 />
@@ -78,7 +96,7 @@ export default function Account() {
                   type="password"
                   id="password"
                   name="password"
-                  value={password || ""} 
+                  value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   onKeyDown={handleKeyDown}
                 />
@@ -100,7 +118,15 @@ export default function Account() {
                   Sign In
                 </button>
                 <p>Don't have an account?</p>
-                <button className="signup-btn">Sign Up</button>
+                  <NavLink
+                    to="/signup"
+                    activeClassName="active"
+                    className="signup-btn">
+                    
+                    Sign Up
+
+
+                </NavLink>
               </div>
             </form>
           </div>

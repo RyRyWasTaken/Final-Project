@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
-export default function Navbar({ setSelectedSection }) {
+export default function Navbar() {
 
     return (
         <nav>
@@ -11,7 +11,7 @@ export default function Navbar({ setSelectedSection }) {
                     <NavLink
                         to="/account"
                         activeClassName="active"
-                        className="button"
+                        className="navlink"
                     >
                         My Account
                     </NavLink>
@@ -21,7 +21,7 @@ export default function Navbar({ setSelectedSection }) {
                         to="/"
                         exact
                         activeClassName="active"
-                        className="button"
+                        className="navlink"
                     >
                         Home
                     </NavLink>
@@ -30,7 +30,7 @@ export default function Navbar({ setSelectedSection }) {
                     <NavLink
                         to="/cart"
                         activeClassName="active"
-                        className="button"
+                        className="navlink"
                     >
                         My Cart
                     </NavLink>
