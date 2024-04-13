@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./SignIn.css";
+import "../../Account/Account.css";
 import { NavLink } from "react-router-dom";
 
 export default function SignIn() {
@@ -64,7 +64,6 @@ export default function SignIn() {
   };
 
   return (
-    <section id="account">
       <div className="pageBody">
         {isLoggedIn ? (
           <div>
@@ -120,7 +119,6 @@ export default function SignIn() {
                 <p>Don't have an account?</p>
                   <NavLink
                     to="/signup"
-                    activeClassName="active"
                     className="signup-btn">
                     
                     Sign Up
@@ -132,6 +130,5 @@ export default function SignIn() {
           </div>
         )}
       </div>
-    </section>
   );
 }

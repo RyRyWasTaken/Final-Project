@@ -27,14 +27,14 @@ def signin():
         return jsonify({"message": "Sign in successful", "access_token": access_token}), 200
     else:
         return jsonify({"error": "Invalid username or password"}), 401
-
+    
 @app.route("/signup", methods=["POST"])
 def signup():
     data = request.get_json()
     username = data.get("username")
     password = data.get("password")
-    role = data.get("role")
-
+    role = data.get("role", "user")
+    
     existing_user = User.query.filter_by(username=username).first()
     if existing_user:
         return jsonify({"error": "Username already exists"}), 400
@@ -45,6 +45,7 @@ def signup():
 
     access_token = create_access_token(identity=new_user.id)
     return jsonify({"message": "Sign up successful", "access_token": access_token}), 201
+
 
 @app.route("/protected")
 @jwt_required()
