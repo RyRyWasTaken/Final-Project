@@ -9,6 +9,13 @@ load_dotenv()
 app.config["JWT_SECRET_KEY"] = ";oiausdhfo;ajsdhf" 
 jwt = JWTManager(app)
 
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS')
+    return response
+
 @app.route("/profiles")
 def home():
     users = User.query.all()

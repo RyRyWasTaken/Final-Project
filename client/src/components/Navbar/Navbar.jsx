@@ -1,8 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar() {
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        fetchUserData();
+    }, []);
+
+    const fetchUserData = async () => {
+        try {
+            const response = await fetch('/protected', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}` 
+                }
+            });
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data); 
+                setIsAdmin(data.role === 'admin'); 
+            } else {
+                setIsAdmin(false); 
+            }
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+            setIsAdmin(false); 
+        }
+    };
 
     return (
         <nav>
@@ -35,6 +62,17 @@ export default function Navbar() {
                         My Cart
                     </NavLink>
                 </li>
+                {isAdmin && (
+                    <li>
+                        <NavLink
+                            to="/admin"
+                            activeClassName="active"
+                            className="navlink"
+                        >
+                            Admin
+                        </NavLink>
+                    </li>
+                )}
             </ul>
         </nav>
     );

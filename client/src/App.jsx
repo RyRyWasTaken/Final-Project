@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Home from "./components/Navbar/Home/Home.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx"
 import Cart from "./components/Navbar/Cart/Cart.jsx";
