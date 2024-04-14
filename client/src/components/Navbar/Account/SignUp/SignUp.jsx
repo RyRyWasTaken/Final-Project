@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import "../../Account/Account.css";
-
 
 export default function SignUp() {
   const [username, setUsername] = useState("");
@@ -62,12 +61,6 @@ export default function SignUp() {
     }
   };
 
-  const handleSignOut = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
-    setToken(null);
-  };
-
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
@@ -78,17 +71,11 @@ export default function SignUp() {
   return (
     <div className="pageBody">
       {isLoggedIn ? (
-        <div>
-          <h2>Welcome!</h2>
-          <button className="signout-btn" onClick={handleSignOut}>
-            Sign Out
-          </button>
-        </div>
+        <Navigate to="/account" />
       ) : (
         <div>
-            <h2>Sign Up</h2>
-            
-            <hr />
+          <h2>Sign Up</h2>
+          <hr />
           {error && <p className="error-message">{error}</p>}
           <form onSubmit={handleSignUp}>
             <div className="form-group">
@@ -123,19 +110,13 @@ export default function SignUp() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
-              <button type="submit" className="signup-btn">
-                Sign Up
-              </button>
-              <p>Have an account?</p>
-                  <NavLink
-                    to="/account"
-                    activeClassName="active"
-                    className="signin-btn">
-                    
-                    Sign In
-
-
-                </NavLink>
+            <button type="submit" className="signup-btn">
+              Sign Up
+            </button>
+            <p>Have an account?</p>
+            <NavLink to="/account" activeClassName="active" className="signin-btn">
+              Sign In
+            </NavLink>
           </form>
         </div>
       )}

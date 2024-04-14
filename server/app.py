@@ -22,6 +22,15 @@ def home():
     users_json = [user.to_json() for user in users]
     return jsonify(users_json)
 
+@app.route("/account")
+def account():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    if user:
+        return jsonify({"user": user.to_json()}), 200
+    else:
+        return jsonify({"error": "User not found"}), 404
+
 @app.route("/signin", methods=["POST"])
 def signin():
     data = request.get_json()

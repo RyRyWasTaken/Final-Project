@@ -65,11 +65,11 @@ export default function Navbar() {
                     <li>
                         <NavLink
                             to="/admin"
-                            activeClassName="active" {/* i'm trying to make it so it shows the admin in the navbar whenever you sign in as an admin (refer to the database) */}
+                            activeClassName="active"
                             className="navlink"
                         >
                             Admin
-                        </NavLink>
+                        </NavLink> {/* i'm trying to make it so it shows the admin in the navbar whenever you sign in as an admin (refer to the database) */}
                     </li>
                 )} 
             </ul>

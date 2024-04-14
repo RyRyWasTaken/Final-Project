@@ -6,6 +6,7 @@ class User(db.Model):
     password = db.Column(db.String(100), nullable=False)
     role = db.Column(db.String(10), default='user', nullable=False)
     is_admin = db.Column(db.Boolean, default=False, nullable=False)
+    points = db.Column(db.Integer, default=0, nullable=False)
 
     def to_json(self):
         return {
@@ -13,5 +14,6 @@ class User(db.Model):
             "username": self.username,
             "password": self.password,
             "role": self.role,
-            "is_admin": self.is_admin
+            "is_admin": self.is_admin,
+            "points": self.points,
         }

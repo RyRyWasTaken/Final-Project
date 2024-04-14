@@ -3,8 +3,9 @@ import './Home.css';
 
 export default function Home() {
     return (
-        <section id="home">
+        <div>
             <h2>Home</h2>
-        </section>
+            
+        </div>
     );
 }
