@@ -7,7 +7,7 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(null); {/* The token's value in the web is undefined, how do i fix that? */}
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");

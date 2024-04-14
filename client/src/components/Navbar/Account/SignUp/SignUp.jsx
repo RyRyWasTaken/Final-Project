@@ -50,7 +50,7 @@ export default function SignUp() {
         const data = await response.json();
         localStorage.setItem("token", data.token);
         setToken(data.token);
-        setUsername(data.username);
+        setUsername(username);
         setIsLoggedIn(true);
       } else {
         const errorData = await response.json();
@@ -132,7 +132,7 @@ export default function SignUp() {
                     activeClassName="active"
                     className="signin-btn">
                     
-                    Sign Up
+                    Sign In
 
 
                 </NavLink>

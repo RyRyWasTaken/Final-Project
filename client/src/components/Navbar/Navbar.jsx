@@ -20,7 +20,6 @@ export default function Navbar() {
             });
             if (response.ok) {
                 const data = await response.json();
-                console.log(data); 
                 setIsAdmin(data.role === 'admin'); 
             } else {
                 setIsAdmin(false); 
@@ -66,13 +65,13 @@ export default function Navbar() {
                     <li>
                         <NavLink
                             to="/admin"
-                            activeClassName="active"
+                            activeClassName="active" {/* i'm trying to make it so it shows the admin in the navbar whenever you sign in as an admin (refer to the database) */}
                             className="navlink"
                         >
                             Admin
                         </NavLink>
                     </li>
-                )}
+                )} 
             </ul>
         </nav>
     );
