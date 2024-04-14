@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../Account/Account.css";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Account() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -28,9 +28,7 @@ export default function Account() {
                         Sign Out
                     </button>
                 </div>
-            ) : (
-                <Navigate to="/signin" />
-            )}
+            ) : null}
         </div>
     );
 }

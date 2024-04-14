@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 export default function Navbar() {
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchUserData();
@@ -18,30 +19,45 @@ export default function Navbar() {
                     'Authorization': `Bearer ${localStorage.getItem('access_token')}` 
                 }
             });
-            if (response.ok) {
-                const data = await response.json();
-                setIsAdmin(data.role === 'admin'); 
+            if (response.ok) { 
+                setIsLoggedIn(true); 
             } else {
-                setIsAdmin(false); 
+                setIsLoggedIn(false); 
             }
         } catch (error) {
             console.error('Error fetching user data:', error);
-            setIsAdmin(false); 
+            setIsLoggedIn(false); 
         }
+    };
+
+    const handleMyAccountClick = () => {
+        navigate('/signin');
     };
 
     return (
         <nav>
             <ul>
-                <li>
-                    <NavLink
-                        to="/account"
-                        activeClassName="active"
-                        className="navlink"
-                    >
-                        My Account
-                    </NavLink>
-                </li>
+                {isLoggedIn ? (
+                    <li>
+                        <NavLink
+                            to="/account"
+                            activeClassName="active"
+                            className="navlink"
+                        >
+                            My Account
+                        </NavLink>
+                    </li>
+                ) : (
+                    <li>
+                        <NavLink
+                            to="/signin"
+                            className="navlink"
+                            onClick={handleMyAccountClick}
+                        >
+                            My Account
+                        </NavLink>
+                    </li>
+                )}
                 <li>
                     <NavLink
                         to="/"
@@ -52,26 +68,6 @@ export default function Navbar() {
                         Home
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink
-                        to="/cart"
-                        activeClassName="active"
-                        className="navlink"
-                    >
-                        My Cart
-                    </NavLink>
-                </li>
-                {isAdmin && (
-                    <li>
-                        <NavLink
-                            to="/admin"
-                            activeClassName="active"
-                            className="navlink"
-                        >
-                            Admin
-                        </NavLink> {/* i'm trying to make it so it shows the admin in the navbar whenever you sign in as an admin (refer to the database) */}
-                    </li>
-                )} 
             </ul>
         </nav>
     );
