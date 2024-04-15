@@ -22,6 +22,12 @@ export default function Home() {
                 <h3>{count}</h3>
               </div>
             </div>
+
+            <div className="skill-wrapper">
+              <div className="skill-div">
+                
+              </div>
+            </div>
           </>
         ) : (
           <div>
