@@ -6,33 +6,13 @@ export default function Home() {
   const isLoggedIn = !!storedToken;
   const [count, setCount] = useState(0);
 
-  const handleClick = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/update_points", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${storedToken}`,
-        },
-        body: JSON.stringify({ points: count + 1 }), 
-      });
-      if (response.ok) {
-        setCount(prevCount => prevCount + 1); // Update count based on previous state
-      } else {
-        console.error("Error updating points:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   return (
     <>
       <div className="front">
         {isLoggedIn ? (
           <>
             <div className="seal-div">
-              <button onClick={handleClick}>
+              <button onClick={() => setCount(count + 1)}>
                 <img className="seal-img" src="/seal2.png" alt="" />
               </button>
             </div>

@@ -13,6 +13,11 @@ h2, h3 {
     height: 170px;
 }
 
+.seal-img:active {
+    width: 200px;
+    height: 150px;
+}
+
 .seal-div {
     position: relative;
     margin: 50px auto;
@@ -21,6 +26,7 @@ h2, h3 {
 
 .counter-wrapper {
     position: absolute;
+    margin-top: 20px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
