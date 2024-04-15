@@ -62,6 +62,28 @@ def signup():
     access_token = create_access_token(identity=new_user.id)
     return jsonify({"message": "Sign up successful", "access_token": access_token}), 201
 
+@app.route("/update_points", methods=["POST"])
+@jwt_required()
+def update_points():
+    try:
+        current_user_id = get_jwt_identity()
+        user = User.query.get(current_user_id)
+        if user:
+            data = request.get_json()
+            points = data.get("points")
+            user.points += points
+            db.session.commit()
+            return jsonify({"message": "Points updated successfully"}), 200
+        else:
+            return jsonify({"error": "User not found"}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+@app.route("/update_points", methods=["OPTIONS"])
+def options_update_points():
+    response = app.make_default_options_response()
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+    return response
 
 @app.route("/protected")
 @jwt_required()

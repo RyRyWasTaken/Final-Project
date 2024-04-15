@@ -61,7 +61,7 @@ export default function Navbar() {
                 <li>
                     <NavLink
                         to="/"
-                        exact
+                        exact="true"
                         activeClassName="active"
                         className="navlink"
                     >

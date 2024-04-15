@@ -6,8 +6,8 @@ export default function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [token, setToken] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // eslint-disable-next-line
+  const [token, setToken] = useState(null); 
   const [error, setError] = useState(null);
 
   useEffect(() => {
