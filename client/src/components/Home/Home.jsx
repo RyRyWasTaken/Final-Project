@@ -18,15 +18,18 @@ export default function Home() {
           const data = await response.json();
           setCount(data.seal_count);
         } else {
-          throw new Error("Failed to fetch seal count");
+          throw new Error(`Failed to fetch seal count: ${response.status} - ${response.statusText}`);
         }
       } catch (error) {
         console.error("Error fetching seal count:", error);
       }
     };
-
-    fetchCount();
+  
+    if (storedToken) {
+      fetchCount();
+    }
   }, [storedToken]);
+  
 
   const incrementCount = async () => {
     try {
