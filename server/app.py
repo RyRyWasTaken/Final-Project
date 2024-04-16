@@ -6,7 +6,7 @@ from models import User
 
 load_dotenv()
 
-app.config["JWT_SECRET_KEY"] = ";oiausdhfo;ajsdhf" 
+app.config["JWT_SECRET_KEY"] = ";oiausdhfo;ajsdhf"
 jwt = JWTManager(app)
 
 @app.after_request
@@ -91,6 +91,36 @@ def protected():
     current_user_id = get_jwt_identity()
     user = User.query.get(current_user_id)
     return jsonify({"user": user.to_json()}), 200
+
+@app.route("/update_seal_count", methods=["POST"])
+@jwt_required()
+def update_seal_count():
+    try:
+        current_user_id = get_jwt_identity()
+        user = User.query.get(current_user_id)
+        if user:
+            data = request.get_json()
+            seal_count = data.get("seal_count")
+            user.seal_count = seal_count
+            db.session.commit()
+            return jsonify({"message": "Seal count updated successfully"}), 200
+        else:
+            return jsonify({"error": "User not found"}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/seal_count", methods=["GET"])
+@jwt_required()
+def get_seal_count():
+    try:
+        current_user_id = get_jwt_identity()
+        user = User.query.get(current_user_id)
+        if user:
+            return jsonify({"seal_count": user.seal_count}), 200
+        else:
+            return jsonify({"error": "User not found"}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     with app.app_context():
