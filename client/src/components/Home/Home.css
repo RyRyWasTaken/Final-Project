@@ -18,16 +18,16 @@ h2, h3 {
     height: 150px;
 }
 
-.seal-div {
+.seal-wrapper {
     position: relative;
     margin: 50px auto;
     max-width: fit-content;
+    margin-top: 50px;
 }
 
 .counter-wrapper {
     position: absolute;
-    margin-top: 20px;
-    top: 50%;
+    top: 50px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 }

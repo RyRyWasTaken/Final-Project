@@ -7,35 +7,27 @@ export default function Home() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
-      <div className="front">
-        {isLoggedIn ? (
-          <>
-            <div className="seal-div">
-              <button onClick={() => setCount(count + 1)}>
-                <img className="seal-img" src="/seal2.png" alt="" />
-              </button>
+    <div className="front">
+      {isLoggedIn ? (
+        <>
+          <div className="counter-wrapper">
+            <div className="counter-div">
+              <h3>{count} Seals</h3>
             </div>
-
-            <div className="counter-wrapper">
-              <div className="counter-div">
-                <h3>{count}</h3>
-              </div>
-            </div>
-
-            <div className="skill-wrapper">
-              <div className="skill-div">
-                
-              </div>
-            </div>
-          </>
-        ) : (
-          <div>
-            <h2>Silly Person!</h2>
-            <h2>You have to sign in first!</h2>
           </div>
-        )}
-      </div>
-    </>
+
+          <div className="seal-wrapper">
+            <button onClick={() => setCount(count + 1)}>
+              <img className="seal-img" src="/seal2.png" alt="" />
+            </button>
+          </div>
+        </>
+      ) : (
+        <div>
+          <h2>Silly Person!</h2>
+          <h2>You have to sign in first!</h2>
+        </div>
+      )}
+    </div>
   );
 }
