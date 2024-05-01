@@ -14,9 +14,9 @@ export default function Navbar() {
         try {
             const response = await fetch('/protected', {
                 method: 'GET',
-                headers: {
+                headers: {  
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('access_token')}` 
+                    'Authorization': `Bearer ${localStorage.getItem('token')}` 
                 }
             });
             if (response.ok) { 
