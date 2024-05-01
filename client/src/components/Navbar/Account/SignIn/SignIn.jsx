@@ -29,7 +29,7 @@ export default function SignIn() {
 
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("token", data.access_token);
         setUsername(data.username);
         setIsLoggedIn(true);
       } else {

@@ -9,10 +9,7 @@ def populate_database():
         create_tables()
 
         example_users = [
-            {"username": "admin", "password": "admin", "role": "admin", "seal_count": 0},
-            {"username": "john_doe", "password": "johnpass", "role": "user", "seal_count": 0},
-            {"username": "alice_smith", "password": "alicepass", "role": "user", "seal_count": 0},
-            {"username": "bob_johnson", "password": "johnsonpass", "role": "user", "seal_count": 0}
+            {"username": "admin", "password": "admin", "role": "admin", "seal_count": 0}
         ]
 
         for user_data in example_users:
