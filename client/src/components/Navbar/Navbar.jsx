@@ -4,6 +4,7 @@ import './Navbar.css';
 
 export default function Navbar() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false); // New state for admin status
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -20,7 +21,9 @@ export default function Navbar() {
                 }
             });
             if (response.ok) { 
+                const userData = await response.json();
                 setIsLoggedIn(true); 
+                setIsAdmin(userData.user.is_admin);
             } else {
                 setIsLoggedIn(false); 
             }
@@ -38,15 +41,28 @@ export default function Navbar() {
         <nav>
             <ul>
                 {isLoggedIn ? (
-                    <li>
-                        <NavLink
-                            to="/account"
-                            activeClassName="active"
-                            className="navlink"
-                        >
-                            My Account
-                        </NavLink>
-                    </li>
+                    <>
+                        {isAdmin && (
+                            <li>
+                                <NavLink
+                                    to="/admin"
+                                    activeClassName="active"
+                                    className="navlink"
+                                >
+                                    Admin
+                                </NavLink>
+                            </li>
+                        )}
+                        <li>
+                            <NavLink
+                                to="/account"
+                                activeClassName="active"
+                                className="navlink"
+                            >
+                                My Account
+                            </NavLink>
+                        </li>
+                    </>
                 ) : (
                     <li>
                         <NavLink

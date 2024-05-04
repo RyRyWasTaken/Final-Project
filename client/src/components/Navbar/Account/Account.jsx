@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../Account/Account.css";
 import { useNavigate } from "react-router-dom";
+import "../Account/Account.css";
 
 export default function Account() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);

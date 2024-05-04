@@ -99,6 +99,17 @@ def get_seal_count():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route("/admin")
+@jwt_required()
+def admin_dashboard():
+    current_user_id = get_jwt_identity()
+    user = User.query.get(current_user_id)
+    if user and user.is_admin:
+        return jsonify({"message": "Admin"})
+    else:
+        return jsonify({"error": "Unauthorized"}), 401
+
+
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()

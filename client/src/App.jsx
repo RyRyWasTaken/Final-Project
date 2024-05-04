@@ -4,6 +4,7 @@ import Home from "./components/Home/Home.jsx";
 import Account from "./components/Navbar/Account/Account.jsx";
 import SignUp from "./components/Navbar/Account/SignUp/SignUp.jsx";
 import SignIn from "./components/Navbar/Account/SignIn/SignIn.jsx";
+import Admin from "./components/Admin/Admin.jsx";
 
 export default function App() {
     return (
@@ -15,6 +16,7 @@ export default function App() {
                 <Route path="/account" element={<Account />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/admin" element={<Admin />} />
             </Routes>
         </BrowserRouter>
     </>

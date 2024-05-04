@@ -47,9 +47,9 @@ export default function SignUp() {
 
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem("token", data.token);
-        setToken(data.token);
-        setUsername(username);
+        localStorage.setItem("token", data.access_token);
+        setToken(data.access_token);
+        setUsername(data.username);
         setIsLoggedIn(true);
       } else {
         const errorData = await response.json();
@@ -114,7 +114,7 @@ export default function SignUp() {
               Sign Up
             </button>
             <p>Have an account?</p>
-            <NavLink to="/account" activeClassName="active" className="signin-btn">
+            <NavLink to="/signin" activeClassName="active" className="signin-btn">
               Sign In
             </NavLink>
           </form>
