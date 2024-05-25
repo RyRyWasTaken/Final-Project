@@ -5,6 +5,11 @@ I've always as a kid used to enjoy website games and clicker games alike, so I'v
 
 ## About the website
 
+Not alot to say, let's be honest
+
+You have a login/signup (and logout)
+And obviously, the magnum opus, the seal buddy himself!
+
 ## Before you start
 
 Make sure that before you start running the website you do the following:

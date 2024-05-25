@@ -4,7 +4,7 @@ import './Navbar.css';
 
 export default function Navbar() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [isAdmin, setIsAdmin] = useState(false); // New state for admin status
+    const [isAdmin, setIsAdmin] = useState(false); 
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export default function Navbar() {
                 method: 'GET',
                 headers: {  
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}` 
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}` 
                 }
             });
             if (response.ok) { 
