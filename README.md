@@ -3,13 +3,6 @@
 
 I've always as a kid used to enjoy website games and clicker games alike, so I've decided, as my final project in John Bryce, to try and make a game of that sort.
 
-## About the website
-
-Not alot to say, let's be honest
-
-You have a login/signup (and logout)
-And obviously, the magnum opus, the seal buddy himself!
-
 ## Before you start
 
 Make sure that before you start running the website you do the following:
@@ -20,7 +13,7 @@ Make sure that before you start running the website you do the following:
 
 ## How to play
 
-In order to play, I tried to make it as comprehensible as I could but I shall include this section in case my instructor is gonna be strict on me :)
+In order to play, I tried to make it as comprehensible as I could but I shall include this section just in case.
 
 So, I have included only one account in the database which is simply "admin" for **username** and **password**.
 
